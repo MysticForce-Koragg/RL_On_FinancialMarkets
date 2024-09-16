@@ -1,9 +1,14 @@
 # Reinforcement Learning on StockMarket
 
-This project aim to make trade decisions using RL Agent.
+This project focuses on developing a Reinforcement Learning (RL) agent to make trade decisions based on market data. The agent is trained using weekly and daily candle data, reducing noise and outliers. Key indicators such as RSI, ATR, VWAP, and 52-week High/Low are used as inputs, along with position data, to provide a comprehensive market view.
 
-Weekly and daily candle data is used to train the agent to avoid noise and outliers. Most popular indicators and price levels such as RSI, ATR, VWAP, 52-week High/Low and etc is used as observations along with position data.
+The agent's actions include Long, Short, and Hold, with the selected action determined by the argmax of the neural network's outputs.
 
-The actions for the agents are Long, Short, and Hold. The action for the observation is the argmax of the NN outputs.
+Reward Function:
 
-Reward Fuction: Intial rewards for the agent is -500. 300 points for the closing the position with profit and No reward for opening position and -100 will be for holding the position or not opening position, for closing the position with the loss will be -300 points.
+Initial reward: -500 points.
+Closing a position with profit: +300 points.
+Opening a position: 0 points (no reward).
+Holding a position or not opening: -100 points.
+Closing a position with a loss: -300 points.
+This reward structure is designed to encourage profitable trades while penalizing indecision and losses.
